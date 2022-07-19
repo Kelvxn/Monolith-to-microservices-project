@@ -22,12 +22,12 @@ script:
   # - docker build -t udagram-api-feed ./udagram-frontend
   # Do similar for other three images
 
-  # Tagging
-  - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-api-feed 898969/udagram-api-feed:v1
-  - docker tag udagram-api-user 898969/udagram-api-user:v1
-  - docker tag udagram-frontend 898969/udagram-frontend:v1
-  # Do similar for other three images
+  # # Tagging
+  # - docker build -t udagram-reverseproxy ./udagram-reverseproxy
+  # - docker tag udagram-api-feed 80804l/udagram-api-feed:v1
+  # - docker tag udagram-api-user 80804l/udagram-api-user:v1
+  # - docker tag udagram-frontend 80804l/udagram-frontend:v1
+  # # Do similar for other three images
 
 
 after_success:
@@ -35,8 +35,8 @@ after_success:
   # Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose -f docker-compose-build.yaml push
-  # - docker push 898969/udagram-reverseproxy:v1
-  # - docker push 898969/udagram-api-feed:v1
-  # - docker push 898969/udagram-api-user:v1
-  # - docker push 898969/udagram-frontend:v1
+  # - docker push 80804l/udagram-reverseproxy:v1
+  # - docker push 80804l/udagram-api-feed:v1
+  # - docker push 80804l/udagram-api-user:v1
+  # - docker push 80804l/udagram-frontend:v1
   # Do similar for other three images
