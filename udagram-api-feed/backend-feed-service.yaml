@@ -4,7 +4,6 @@ metadata:
   name: api-feed
   labels:
     run: api-feed
-
 spec:
   ports:
   - port: 80
