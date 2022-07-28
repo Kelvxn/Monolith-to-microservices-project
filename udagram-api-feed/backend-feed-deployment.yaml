@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-api-feed
-          image: 898969/udagram-api-feed
+          image: 898969/udagram-api-feed:latest
           imagePullPolicy: Always
           resources:
             limits:

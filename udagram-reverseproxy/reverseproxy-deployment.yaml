@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reverseproxy
-          image: 898969/reverseproxy
+          image: 898969/reverseproxy:latest
           imagePullPolicy: Always
           resources:
             limits:
