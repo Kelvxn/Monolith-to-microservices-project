@@ -1,22 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-user
+  name: backend-user
   labels:
-    app: api-user
+    app: backend-user
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: api-user
+      app: backend-user
   template:
     metadata:
       labels:
-        app: api-user
+        app: backend-user
     spec:
       containers:
         - name: udagram-api-user
           image: 898969/udagram-api-user
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
           env:
             - name: POSTGRES_HOST
               valueFrom:
@@ -65,3 +73,9 @@ spec:
                   key: URL
           ports:
           - containerPort: 80
+          livenessProbe:
+              httpGet:
+                path: /
+                port: 80
+              initialDelaySeconds: 3
+              periodSeconds: 3
